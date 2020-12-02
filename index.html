@@ -1,14 +1,45 @@
 <!doctype html>
 <style>
   html { 
-    background-color: #c49d30;
-    background: url(turntable.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-color: #b8820c;
   }
-</style>
+  html, body {
+  height: 100%;
+}
+  video {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+@media (min-aspect-ratio: 16/9) {
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+
+  @media (min-width: 640px) {
+    html {
+      background: url(turntable.gif) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+
 </style>
 <html>
 <title>Modern Jetset | Listen Now</title>
@@ -19,6 +50,7 @@
   <!-- ... -->
 </head>
 <body>
+  <!-- <video src="https://css-tricks-post-videos.s3.us-east-1.amazonaws.com/708209935.mp4" autoplay loop playsinline muted></video> -->
   <div class="w-full min-h-screen text-white">
     <div class="w-full min-h-screen z-10">
       <div class="max-w-7xl sm:w-2/3 lg:w-3/5 py-12 px-12 sm:pr-0">
@@ -78,7 +110,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
         fetch('https://api.mixcloud.com' + latestEpisode)
             .then(response => response.json())
             .then(latestEpisodeInfo => {
-            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">')
+            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('https://www.radiorethink.com/listen', '<a href="https://www.radiorethink.com/eclectic" target="_blank" class="underline">Radio Rethink</a>')
             fetch('https://api.mixcloud.com' + latestEpisode + '/embed-json/')
               .then(response => response.json())
               .then(latestEpisodePlayer => {
