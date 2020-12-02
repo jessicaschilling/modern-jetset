@@ -1,5 +1,5 @@
 # modern-jetset
-Shinier player for Modern Jetset Mixcloud archive episodes, available at [modernjetset.com](https://modernjetset.com).
+Shinier player for [Modern Jetset Mixcloud archive episodes](https://www.mixcloud.com/irisberkeley/playlists/modern-jetset/), available at [modernjetset.com](https://modernjetset.com).
 
 Nothing special: grabs JSON for the last published episode from the [Mixcloud API], drops details into some divs, and plops in Mixcloud's embedded player. CSS is just [Tailwind](https://tailwindcss.com/) from a CDN.
 
