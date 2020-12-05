@@ -10,7 +10,7 @@ This repo is home to a shinier player for [Modern Jetset Mixcloud archive episod
 
 Code is nothing special: grabs JSON for the last published episode from the [Mixcloud API](https://www.mixcloud.com/developers/), drops details into some divs, and plops in Mixcloud's embedded player. CSS is just [Tailwind](https://tailwindcss.com/) from a CDN.
 
-It's deployed using [Netlify](https://irisberkeley.netlify.com/).
+It's deployed using [Netlify](https://modernjetset.netlify.app/).
 
 The spinning turntable is a snippet from a beautiful video by Stas Knop, via [Pexels](https://www.pexels.com/video/a-vinyl-record-played-on-a-turntable-4380097/). The Modern Jetset logotype is a bastardized italic of Matthew Carter's lovely [Elephant](https://www.linotype.com/899983/elephant-family.html).
 
