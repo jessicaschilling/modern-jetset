@@ -79,7 +79,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
             .then(response => response.json())
             .then(latestEpisodeInfo => {
             document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('https://www.radiorethink.com/listen', '<a href="https://www.radiorethink.com/eclectic" target="_blank" class="underline">Radio Rethink</a>')
-            fetch('https://api.mixcloud.com' + latestEpisode + '/embed-json/')
+            fetch('https://api.mixcloud.com' + latestEpisode + 'embed-json/')
               .then(response => response.json())
               .then(latestEpisodePlayer => {
               document.querySelector('#mixcloudEmbed').innerHTML = latestEpisodePlayer.html
