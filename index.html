@@ -19,6 +19,12 @@
     -webkit-box-shadow: 5px 5px 15px 5px #000000; 
     box-shadow: 5px 5px 15px 5px #000000;
   }
+  .color-accent {
+    color: #b8820c;
+  }
+  #btn-close {
+    background-color: #b8820c;
+  }
 </style>
 <html>
 <title>Modern Jetset | Listen Now</title>
@@ -32,6 +38,32 @@
   <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
+  <!--modal overlay-->
+  <div id="modal-station-list" class="fixed hidden inset-0 bg-gray-800 bg-opacity-70 overflow-y-auto h-full w-full">
+    <!--modal content-->
+    <div class="mx-5 sm:mx-auto my-5 sm:my-20 p-5 sm:w-4/5 max-w-5xl shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-xl leading-6 text-center font-semibold text-gray-900">Tune in to Modern Jetset</h3>
+        <div class="mt-2 px-1 py-3 text-md text-gray-700">
+          <p>
+            Modern Jetset can be heard weekly on the following fine and fancy radio stations:
+            <ul class="list-disc mt-2 ml-5">
+              <li><a href="http://www.radiorethink.com/eclectic" class="font-semibold color-accent hover:underline" target="_blank">Radio Rethink</a>: Wednesdays, 5-6 PM (US Mountain)</li>
+              <li class="mt-1">KGNU's <a href="http://www.afterfm.com" class="font-semibold color-accent hover:underline" target="_blank">AfterFM</a>: Saturdays, 6-7 PM (US Mountain)</li>
+            </ul>
+          </p>
+          <p class="mt-4">
+            If your favorite station isn't on the list, it can be! Modern Jetset is <strong>free</strong> to license on <a href="https://exchange.prx.org/series/42347-modern-jetset" class="font-semibold color-accent hover:underline" target="_blank">PRX Exchange</a>, the nation's largest open audio distribution marketplace. All public, community, college, and low-power FM stations are welcome to license PRX content &mdash; so tell your favorite local station that you'd like to fly the fancy skies from your city or town!
+          </p>
+        </div>
+        <div class="px-4 py-3 text-center">
+          <button id="btn-close" class="px-4 py-2 text-white text-base font-medium rounded-lg w-32 shadow-md">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="w-full min-h-screen text-white">
     <div class="turntable-top mb-2 block sm:hidden"><img src="turntable-top.gif"></div>
     <div class="w-full sm:min-h-screen flex">
@@ -52,16 +84,23 @@
               <path class="fill-current text-white shadow-lg" d="M284.888,127.014q-9.034-14.07-26.275-13.765-26.252.465-49.239,21.507t-26.859,49.571q-2.841,20.922,6.27,34.913t28.31,13.649q24.552-.435,47.377-21.711T291,162.64Q293.923,141.087,284.888,127.014ZM263.9,145.807q-3.717,10.583-9.963,24.447t-13.214,27.273a185.617,185.617,0,0,1-11.647,20.05q-4.683,6.647-8.116,9.394a13.009,13.009,0,0,1-8.137,2.832q-5.225.093-6.775-3.359T205.4,216.336q0.99-7.288,5.575-19.468t9.943-23.815q5.356-11.636,12.141-24.644A179.644,179.644,0,0,1,244.6,128.677q4.755-6.726,8.192-9.475a13.022,13.022,0,0,1,8.137-2.832q5.221-.092,6.775,3.359t0.648,10.108Q267.617,135.227,263.9,145.807Z"/>
               <path class="fill-current text-white shadow-lg" d="M68.022,204.981q1.95-6.6,5.4-19.4t7.866-29.64l0.52-.1V258.142l8.841-1.718L151.619,139.2l1.04,0.413q-2.86,9.16-8.906,28.612T132.7,203.475q-5.005,15.8-8.775,26.667t-6.046,14.309a12.835,12.835,0,0,1-7.085,4.986l-7.151,2V253.9l61.755-12v-2.458q-7.152,1.389-10.011,1.177t-2.86-3.285a23.5,23.5,0,0,1,.91-4.324q0.908-3.4,4.29-14.736t8-25.67q4.614-14.337,11.311-34.764t8.646-24.568q1.95-4.141,8.19-5.969l6.761-1.775v-2.457l-48.494,9.421-40.3,77.11v-69.28l-48.884,9.5v2.458q8.971-1.743,11.9-1.082t2.925,4.654a22.678,22.678,0,0,1-.52,4.018q-0.521,2.637-5.525,21.351T61.262,217.585q-5.46,17.65-7.736,24.084a80.262,80.262,0,0,1-4.55,10.715,32.7,32.7,0,0,1-4.03,6.237,6.437,6.437,0,0,1-2.665,2.13,0.917,0.917,0,0,1-1.3-.976,5.764,5.764,0,0,1,1.365-2.954,18.647,18.647,0,0,0,2.21-3.962,23.784,23.784,0,0,0,1.3-4.477,30.474,30.474,0,0,0,.455-5.618q0-7.835-5.07-11.765a14.064,14.064,0,0,0-11.831-2.617,20.2,20.2,0,0,0-12.741,8.466,26.574,26.574,0,0,0-5.07,16.039q0,9.372,5.591,13.968t13.521,3.057q11.57-2.248,16.576-9.9a84.157,84.157,0,0,0,7.671-14.24q2.663-6.584,6.7-19.811Q66.07,211.584,68.022,204.981Z"/>
           </svg>
-          <h3 id="showName" class="text-2xl font-semibold mt-5 sm:mt-8">(Loading latest episode ...)</h3>
+          <h3 class="text-2xl font-semibold mt-5 sm:mt-8">Now Flying: <span id="showName">(Loading latest episode ...)</span></h3>
           <p id="showDescription" class="text-lg mt-4"></p>
           <div id="mixcloudEmbed" class="w-full mt-6 shadow-md">(Loading player ...)</div>
           <div class="my-6 text-center sm:text-left">
-            <a href="https://www.mixcloud.com/irisberkeley/playlists/modern-jetset/" target="_blank" class="px-3 items-center shadow-md rounded-lg bg-white space-x-2 py-2 justify-center">
-              <span class="text-gray-800 font-semibold">More Episodes</span>
-            </a>
-            <a href="mailto:mail@modernjetset.com?subject=Hi Iris, from modernjetset.com" class="px-3 items-center shadow-md rounded-lg bg-white bg-opacity-50 space-x-2 py-2 ml-4 justify-center">
-              <span class="text-gray-800 font-semibold">Email the DJ</span>
-            </a>
+            <div class="px-3 items-center shadow-md rounded-lg bg-white space-x-2 py-2 mr-3 mb-3 justify-center cursor-pointer inline-block">
+              <a href="https://www.mixcloud.com/irisberkeley/playlists/modern-jetset/" target="_blank">
+                <span class="text-gray-800 font-semibold">Show Archives</span>
+              </a>
+            </div>
+            <div id="btn-open" class="px-3 items-center shadow-md rounded-lg bg-white bg-opacity-50 space-x-2 py-2 mr-3 mb-3 justify-center cursor-pointer inline-block">
+              <span class="text-gray-800 font-semibold">Station List</span>
+            </div>
+            <div class="px-3 items-center shadow-md rounded-lg bg-white bg-opacity-50 space-x-2 py-2 justify-center cursor-pointer inline-block">
+              <a href="mailto:mail@modernjetset.com?subject=Hi Iris, from modernjetset.com">
+                <span class="text-gray-800 font-semibold">Email the Pilot</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +117,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
         fetch('https://api.mixcloud.com' + latestEpisode)
             .then(response => response.json())
             .then(latestEpisodeInfo => {
-            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('https://www.radiorethink.com/listen', '<a href="https://www.radiorethink.com/eclectic" target="_blank" class="underline">Radio Rethink</a>')
+            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('Learn more about Modern Jetset (including how to hear it on your favorite radio station!) at https://modernjetset.com.', '')
             fetch('https://api.mixcloud.com' + latestEpisode + 'embed-json/')
               .then(response => response.json())
               .then(latestEpisodePlayer => {
@@ -86,6 +125,30 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
               }) 
             })           
       })
+</script>
+
+<script>
+  // Defines all the modal elements by their IDs
+  let modal = document.getElementById("modal-station-list");
+  let btn = document.getElementById("btn-open");
+  let button = document.getElementById("btn-close");
+
+  // Open the modal when the Station List button is clicked
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // Close the modal when the Close button is clicked
+  button.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close the modal if user clicks anywhere outside the modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  }
 </script>
 
 </body>
