@@ -117,7 +117,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
         fetch('https://api.mixcloud.com' + latestEpisode)
             .then(response => response.json())
             .then(latestEpisodeInfo => {
-            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('https://www.radiorethink.com/listen', '<a href="https://www.radiorethink.com/eclectic" target="_blank" class="underline">Radio Rethink</a>')
+            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('Learn more about Modern Jetset (including how to hear it on your favorite radio station!) at https://modernjetset.com.', '')
             fetch('https://api.mixcloud.com' + latestEpisode + 'embed-json/')
               .then(response => response.json())
               .then(latestEpisodePlayer => {
@@ -137,6 +137,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
   btn.onclick = function() {
     modal.style.display = "block";
   }
+  
   // Close the modal when the Close button is clicked
   button.onclick = function() {
     modal.style.display = "none";
