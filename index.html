@@ -39,34 +39,32 @@
 </head>
 <body>
   <!--modal overlay-->
-  <div id="my-modal" class="fixed hidden inset-0 bg-gray-800 bg-opacity-70 overflow-y-auto h-full w-full">
-  </div>
-  <div class="w-full min-h-screen text-white">
-
-  <!--modal content-->
-  <div class="fixed top-5 left-5 right-5 sm:top-10 sm:left-10 sm:right-10 mx-auto p-5 border sm:w-4/5 max-w-5xl shadow-lg rounded-md bg-white">
-    <div class="mt-3">
-      <h3 class="text-xl leading-6 text-center font-semibold text-gray-900">Tune in to Modern Jetset</h3>
-      <div class="mt-2 px-1 py-3 text-md text-gray-700">
-        <p>
-          Modern Jetset can be heard weekly on the following fine and fancy radio stations:
-          <ul class="list-disc mt-2 ml-5">
-            <li><a href="http://www.radiorethink.com/eclectic" class="font-semibold color-accent hover:underline" target="_blank">Radio Rethink</a>: Wednesdays, 5-6 PM (US Mountain)</li>
-            <li class="mt-1">KGNU's <a href="http://www.afterfm.com" class="font-semibold color-accent hover:underline" target="_blank">AfterFM</a>: Saturdays, 6-7 PM (US Mountain)</li>
-          </ul>
-        </p>
-        <p class="mt-4">
-          If your favorite station isn't on the list, it can be! Modern Jetset is <strong>free</strong> to license on <a href="https://exchange.prx.org/series/42347-modern-jetset" class="font-semibold color-accent hover:underline" target="_blank">PRX Exchange</a>, the nation's largest open audio distribution marketplace. All public, community, college, and low-power FM stations are welcome to license PRX content &mdash; so tell your favorite local station that you'd like to fly the fancy skies from your city or town!
-        </p>
-      </div>
-      <div class="px-4 py-3 text-center">
-        <button id="btn-close" class="px-4 py-2 text-white text-base font-medium rounded-lg w-32 shadow-md">
-          Close
-        </button>
+  <div id="modal-station-list" class="fixed hidden inset-0 bg-gray-800 bg-opacity-70 overflow-y-auto h-full w-full">
+    <!--modal content-->
+    <div class="mx-5 sm:mx-auto my-5 sm:my-20 p-5 sm:w-4/5 max-w-5xl shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-xl leading-6 text-center font-semibold text-gray-900">Tune in to Modern Jetset</h3>
+        <div class="mt-2 px-1 py-3 text-md text-gray-700">
+          <p>
+            Modern Jetset can be heard weekly on the following fine and fancy radio stations:
+            <ul class="list-disc mt-2 ml-5">
+              <li><a href="http://www.radiorethink.com/eclectic" class="font-semibold color-accent hover:underline" target="_blank">Radio Rethink</a>: Wednesdays, 5-6 PM (US Mountain)</li>
+              <li class="mt-1">KGNU's <a href="http://www.afterfm.com" class="font-semibold color-accent hover:underline" target="_blank">AfterFM</a>: Saturdays, 6-7 PM (US Mountain)</li>
+            </ul>
+          </p>
+          <p class="mt-4">
+            If your favorite station isn't on the list, it can be! Modern Jetset is <strong>free</strong> to license on <a href="https://exchange.prx.org/series/42347-modern-jetset" class="font-semibold color-accent hover:underline" target="_blank">PRX Exchange</a>, the nation's largest open audio distribution marketplace. All public, community, college, and low-power FM stations are welcome to license PRX content &mdash; so tell your favorite local station that you'd like to fly the fancy skies from your city or town!
+          </p>
+        </div>
+        <div class="px-4 py-3 text-center">
+          <button id="btn-close" class="px-4 py-2 text-white text-base font-medium rounded-lg w-32 shadow-md">
+            Close
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
+  <div class="w-full min-h-screen text-white">
     <div class="turntable-top mb-2 block sm:hidden"><img src="turntable-top.gif"></div>
     <div class="w-full sm:min-h-screen flex">
       <div class="sm:w-2/3 lg:w-3/5 p-6 sm:p-12">
@@ -131,7 +129,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
 
 <script>
   // Defines all the modal elements by their IDs
-  let modal = document.getElementById("my-modal");
+  let modal = document.getElementById("modal-station-list");
   let btn = document.getElementById("btn-open");
   let button = document.getElementById("btn-close");
 
