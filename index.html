@@ -118,6 +118,7 @@ fetch('https://api.mixcloud.com/irisberkeley/playlists/modern-jetset/cloudcasts/
             .then(response => response.json())
             .then(latestEpisodeInfo => {
             document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('Learn more about Modern Jetset (including how to hear it on your favorite radio station!) at https://modernjetset.com.', '')
+            document.querySelector('#showDescription').innerHTML = latestEpisodeInfo.description.replace(/\n\n/g, '</p><p class="mt-2">').replace('Iris Berkeley', '<a href="https://irisberkeley.com" target="_blank">Iris Berkeley</a>')
             fetch('https://api.mixcloud.com' + latestEpisode + 'embed-json/')
               .then(response => response.json())
               .then(latestEpisodePlayer => {
